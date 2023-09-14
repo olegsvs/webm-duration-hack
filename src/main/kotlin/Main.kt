@@ -1,13 +1,13 @@
 import java.io.File
 
 fun main(args: Array<String>) {
-    if (args.isEmpty() || args.getOrNull(1) == null) {
-        println("Set file path with -f option")
+    if (args.isEmpty() || args.getOrNull(0) == null) {
+        println("Set file path")
         return
     }
     val webmDurationStartBytes: ByteArray = "4489".decodeHex()
     val webmZeroDurationBytes: ByteArray = "4489843fe42000".decodeHex()
-    val inputFile = File(args[1])
+    val inputFile = File(args[0])
     val inputFileBytes = inputFile.readBytes()
     val indexOfDuration = inputFileBytes.findFirst(webmDurationStartBytes)
     if (indexOfDuration != -1) {
