@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     if (indexOfDuration != -1) {
         webmZeroDurationBytes.forEachIndexed { index, byte -> inputFileBytes[indexOfDuration + index] = byte }
         File(inputFile.path.removeSuffix(inputFile.name).plus("out_${inputFile.name}")).writeBytes(inputFileBytes)
-        println("Successfully modified and written to the output.webm")
+        println("Successfully modified and written to the out_${inputFile.name}")
     } else {
         println("Bytes not found")
     }
